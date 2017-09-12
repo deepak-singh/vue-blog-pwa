@@ -1,9 +1,9 @@
 <template>
   <v-app application--light class="wrapper">
     <app-header></app-header>
-    <v-container class="content center" >
+    <div class="content" >
         <router-view></router-view>     
-    </v-container>
+    </div>
     <app-footer></app-footer>
   </v-app>
 </template>
@@ -37,7 +37,7 @@
   @require '../node_modules/vuetify/src/stylus/main.styl'
 </style>
 
-<style>
+<style >
 
 html,
 body {
@@ -51,14 +51,28 @@ body {
   position:relative;
 }
 .content {
+  width: 100%;
   padding-bottom:50px; /* Height of the footer element */
 }
 .footer {
-  background:#ffab62;
+  background:#efefef;
   width:100%;
   height:30px;
   position:absolute;
   bottom:0;
   left:0;
+  padding: 1rem;
+  text-align: center;
 }
+.rigth {
+  text-align:right !important;
+}
+</style>
+
+<style scoped>
+@media only screen and (min-width: 600px) {
+  .container {
+      max-width: 1024px;
+  }
+}  
 </style>
