@@ -1,25 +1,29 @@
 <template>
   <v-toolbar dark class="header primary">
-    <v-toolbar-title class="white--text">Earth, stars and beyond.</v-toolbar-title>
+    <v-toolbar-title class="white--text">
+      <router-link :to="{name: 'home'}" class="white--text no-text-decoration"> Earth, stars and beyond.</router-link>
+    </v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-btn icon>
-      <v-icon>search</v-icon>
-    </v-btn>
-    <v-btn icon>
-      <v-icon>apps</v-icon>
-    </v-btn>
-    <v-btn icon>
-      <v-icon>refresh</v-icon>
-    </v-btn>
-    <v-btn class="secondary">
-      Login
-    </v-btn>  
-    <v-btn class="secondary">
-      Register
-    </v-btn> 
+    <login-component></login-component>  
+    <register-component></register-component>
   </v-toolbar>
 </template>
 <script>
+import RegisterComponent from '@/components/register'
+import LoginComponent from '@/components/login'
 export default {
+  components: {
+    'register-component': RegisterComponent,
+    'login-component': LoginComponent
+  },
+  data () {
+    return {
+    }
+  }
 }
-</script>  
+</script>
+<style>
+  .center {
+    text-align:center !important;
+  }
+</style>
