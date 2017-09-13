@@ -9,18 +9,18 @@
 </template>
 
 <script>
-  import Header from '@/components/header'
-  import Footer from '@/components/footer'
-  export default {
-    components: {
-      'app-header': Header,
-      'app-footer': Footer
-    },
-    data () {
-      return {
-      }
+import Header from '@/components/header'
+import Footer from '@/components/footer'
+export default {
+  components: {
+    'app-header': Header,
+    'app-footer': Footer
+  },
+  data () {
+    return {
     }
   }
+}
 </script>
 
 <style lang="stylus">

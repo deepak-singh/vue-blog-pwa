@@ -9,10 +9,10 @@
         <v-container grid-list-md>
           <v-layout wrap>
             <v-flex xs12>
-              <v-text-field label="Username" required></v-text-field>
+              <v-text-field v-model="login_data.username" label="Username" autofocus required></v-text-field>
             </v-flex>
             <v-flex xs12>
-              <v-text-field label="Password" type="password" required></v-text-field>
+              <v-text-field v-model="login_data.password" label="Password" type="password" required></v-text-field>
             </v-flex>
           </v-layout>
         </v-container>
@@ -21,16 +21,54 @@
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn class="secondary--text" flat @click.native="login_dialog = false">Close</v-btn>
-        <v-btn class="secondary--text" flat @click.native="login_dialog = false">Login</v-btn>
+        <v-btn class="secondary--text" flat @click="login">Login</v-btn>
       </v-card-actions>
     </v-card>
+      <v-snackbar :timeout="3000" :error ="is_snack_for_error" :success="!is_snack_for_error" v-model="snack_bar">
+        {{ snack_msg }}
+      <v-btn dark flat @click.native="snack_bar = false">Close</v-btn>
+    </v-snackbar>
   </v-dialog>
 </template>
 <script>
+import axios from 'axios'
+import config from '@/config'
+import State from '@/store'
 export default {
   data () {
     return {
-      login_dialog: false
+      login_dialog: false,
+      login_data: {
+        username: undefined,
+        password: undefined
+      },
+      state: State,
+      snack_bar: false,
+      snack_msg: undefined,
+      is_snack_for_error: true
+    }
+  },
+  methods: {
+    login () {
+      if (this.login_data.username && this.login_data.password) {
+        var self = this
+        axios.post(config.api + 'user/login/', this.login_data)
+        .then(response => {
+          var apiKey = response.data.api_key
+          window.localStorage.setItem('api_key', apiKey)
+          self.state.username = response.data.username
+          self.state.last_login = response.data.last_login
+        })
+        .catch(error => {
+          this.is_snack_for_error = true
+          this.snack_bar = true
+          this.snack_msg = error.response.data.reason
+        })
+      } else {
+        this.is_snack_for_error = true
+        this.snack_bar = true
+        this.snack_msg = 'Please enter a username and password.'
+      }
     }
   }
 }

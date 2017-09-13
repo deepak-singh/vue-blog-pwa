@@ -36,17 +36,24 @@
 </span> 
 </template>
 <script>
-  import Masonry from 'masonry-layout'
+  import Isotope from 'isotope-layout'
 
   export default {
     mounted () {
       this.$nextTick(() => {
         /* eslint-disable no-new */
-        new Masonry('.grid', {
+        new Isotope('.grid', {
           itemSelector: '.grid-item',
-          columnWidth: '.grid-item',
-          percentPosition: true
+          percentPosition: true,
+          masonry: {
+            columnWidth: '.grid-item'
+          }
         })
+        // new Masonry('.grid', {
+        //   itemSelector: '.grid-item',
+        //   columnWidth: '.grid-item',
+        //   percentPosition: true
+        // })
       })
     }
   }
