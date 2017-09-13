@@ -14,7 +14,9 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "isotope-layout": "^3.0.4",
+    "masonry": "0.0.2",
     "masonry-layout": "^4.2.0",
     "vee-validate": "^2.0.0-rc.14",
     "vue": "^2.3.3",
