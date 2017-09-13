@@ -1,17 +1,18 @@
 <template>
   <v-toolbar dark class="header primary">
 
-    <v-toolbar-title class="white--text">
+    <v-toolbar-title class="white--text headline">
       <router-link :to="{name: 'home'}" class="white--text no-text-decoration"> Earth, stars and beyond.</router-link>
     </v-toolbar-title>
     <v-spacer></v-spacer>
     
     <login-component v-if="!state.username"></login-component>  
     <register-component v-if="!state.username"></register-component>
-
-    <span class="secondary my-avatar headline" v-if="state.username">
-      {{ state.username.charAt(0) }}
-    </span>
+    
+    <p class="headline no-margin white--text" v-if="state.username">Hello {{ state.username }}!</p>
+    <!-- <span class="secondary my-avatar headline" v-if="state.username">
+      {{ state.username.charAt(0).toUpperCase() }}
+    </span> -->
     <logout-component v-if="state.username"></logout-component>
 
   </v-toolbar>
@@ -44,5 +45,8 @@ export default {
     width: 40px;
     text-align: center;
     padding-top: 5px;
+  }
+  .no-margin {
+    margin: 0px;
   }
 </style>

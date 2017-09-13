@@ -11,6 +11,9 @@
 <script>
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import State from '@/store'
+// import axios from 'axios'
+// import config from '@/config'
 export default {
   components: {
     'app-header': Header,
@@ -18,6 +21,7 @@ export default {
   },
   data () {
     return {
+      state: State
     }
   }
 }

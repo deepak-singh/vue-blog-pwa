@@ -3,10 +3,12 @@ import Router from 'vue-router'
 import Home from '@/components/home'
 import PostDetail from '@/components/post_detail'
 import PostAdd from '@/components/post_add'
-
+import State from '@/store'
+import axios from 'axios'
+import config from '@/config'
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -25,3 +27,19 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (window.localStorage.getItem('api_key') && !State.username) {
+    axios.get(config.api + 'user/1')
+    .then(response => {
+      State.username = response.data.username
+      State.last_login = response.data.last_login
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
+  next()
+})
+
+export default router

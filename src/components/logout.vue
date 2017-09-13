@@ -16,6 +16,7 @@ export default {
       window.localStorage.removeItem('api_key')
       this.state.username = undefined
       this.state.last_login = undefined
+      this.$router.push({'name': 'home'})
     }
   }
 }

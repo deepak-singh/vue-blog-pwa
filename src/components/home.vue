@@ -30,33 +30,33 @@
       </v-flex>
     </v-layout>
   </v-container>
-  <v-btn :to="{name: 'post_add'}" v-tooltip:top="{html: 'Click to add posts'}" class="secondary white--text post-add" fab>
+  <v-btn v-if="state.username" :to="{name: 'post_add'}" v-tooltip:top="{html: 'Click to add posts'}" class="secondary white--text post-add" fab>
     <v-icon>add</v-icon>
   </v-btn> 
 </span> 
 </template>
 <script>
-  import Isotope from 'isotope-layout'
-
-  export default {
-    mounted () {
-      this.$nextTick(() => {
-        /* eslint-disable no-new */
-        new Isotope('.grid', {
-          itemSelector: '.grid-item',
-          percentPosition: true,
-          masonry: {
-            columnWidth: '.grid-item'
-          }
-        })
-        // new Masonry('.grid', {
-        //   itemSelector: '.grid-item',
-        //   columnWidth: '.grid-item',
-        //   percentPosition: true
-        // })
-      })
+import Isotope from 'isotope-layout'
+import State from '@/store'
+export default {
+  data () {
+    return {
+      state: State
     }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      /* eslint-disable no-new */
+      new Isotope('.grid', {
+        itemSelector: '.grid-item',
+        percentPosition: true,
+        masonry: {
+          columnWidth: '.grid-item'
+        }
+      })
+    })
   }
+}
 </script>
 
 <style>
