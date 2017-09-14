@@ -41,7 +41,7 @@
 <script>
 import Isotope from 'isotope-layout'
 import State from '@/store'
-import HTTP from '@/config'
+import HTTP from '@/HTTP'
 export default {
   data () {
     return {

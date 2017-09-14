@@ -27,7 +27,7 @@
 
 <script>
 // import axios from 'axios'
-import HTTP from '@/config'
+import HTTP from '@/HTTP'
 export default {
   $validates: true,
   data () {

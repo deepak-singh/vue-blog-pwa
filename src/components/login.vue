@@ -32,7 +32,7 @@
 </template>
 <script>
 import HTTP from '@/config'
-import State from '@/store'
+import State from '@/HTTP'
 export default {
   data () {
     return {
