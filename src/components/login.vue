@@ -31,8 +31,8 @@
   </v-dialog>
 </template>
 <script>
-import HTTP from '@/config'
-import State from '@/HTTP'
+import HTTP from '@/HTTP'
+import State from '@/store'
 export default {
   data () {
     return {

@@ -4,7 +4,7 @@ import Home from '@/components/home'
 import PostDetail from '@/components/post_detail'
 import PostAdd from '@/components/post_add'
 import State from '@/store'
-import HTTP from '@/config'
+import HTTP from '@/HTTP'
 
 Vue.use(Router)
 
