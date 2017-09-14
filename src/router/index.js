@@ -4,8 +4,8 @@ import Home from '@/components/home'
 import PostDetail from '@/components/post_detail'
 import PostAdd from '@/components/post_add'
 import State from '@/store'
-import axios from 'axios'
-import config from '@/config'
+import HTTP from '@/config'
+
 Vue.use(Router)
 
 const router = new Router({
@@ -29,8 +29,8 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  if (window.localStorage.getItem('api_key') && !State.username) {
-    axios.get(config.api + 'user/1')
+  if (window.localStorage.getItem('api_key_header') && !State.username) {
+    HTTP.get('user/1')
     .then(response => {
       State.username = response.data.username
       State.last_login = response.data.last_login
