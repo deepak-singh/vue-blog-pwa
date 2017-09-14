@@ -2,7 +2,6 @@ import axios from 'axios'
 
 let HTTP = axios.create({
   baseURL: 'https://blog-tastypie.herokuapp.com/api/v1/',
-  timeout: 1000,
   Authorization: undefined
 })
 
