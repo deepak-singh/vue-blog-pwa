@@ -47,7 +47,7 @@ html,
 body {
   margin:0;
   padding:0;
-  height: 100vw;
+  height: 100%;
 }
 
 .application {
