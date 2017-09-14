@@ -21,7 +21,7 @@ const router = new Router({
       component: PostAdd
     },
     {
-      path: '/post/:slug',
+      path: '/post/:post_id/:slug',
       name: 'post_detail',
       component: PostDetail
     }

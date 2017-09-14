@@ -4,8 +4,8 @@
     <v-layout row wrap class="grid">
       <v-flex class="grid-item sm12 md4 " v-for="post in posts">
         <v-card hover>
-          <router-link :to="{ name: 'post_detail', params: {'slug': post.slug}}" class="no-text-decoration">
-            <v-card-media class="white--text" height="200px" src="http://lorempixel.com/500/300/technics/">
+          <router-link :to="{ name: 'post_detail', params: {'slug': post.slug, 'post_id': post.id}}" class="no-text-decoration">
+            <v-card-media class="white--text" height="200px" :src="post.header_image">
               <v-container fill-height fluid>
                 <v-layout fill-height>
                   <v-flex xs12 align-end flexbox>

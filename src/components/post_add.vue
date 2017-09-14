@@ -35,7 +35,7 @@ export default {
       post: {
         title: '',
         body: '',
-        header_image: ''
+        header_image: 'http://lorempixel.com/500/500/technics/'
       }
     }
   },
@@ -45,7 +45,7 @@ export default {
       if (!this.$validator.errors.any()) {
         HTTP.post('post/', this.post)
         .then(response => {
-          this.$router.push({'name': 'post_detail', params: {'slug': response.data.slug}})
+          this.$router.push({'name': 'post_detail', params: {'slug': response.data.slug, 'post_id': response.data.id}})
         })
         .catch(error => {
           console.log(error.response)
