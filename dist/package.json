@@ -1,0 +1,13 @@
+{
+ "name": "vue-pwa-blog",
+ "version": "1.0.0",
+ "description": "personalblog",
+ "author": "Deepak Singh",
+ "private": true,
+ "scripts": {
+   "postinstall": "npm install express"
+ },
+ "engines": {
+    "node": ">= 4.0.0"
+  }
+}
