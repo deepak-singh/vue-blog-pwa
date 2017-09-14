@@ -31,7 +31,10 @@ export default {
 <style scoped>
 .container {
   width: 100% !important;
-  padding: 0px !important;
+  padding: 0px;
+}
+.content {
+  padding: 16px !important;
 }
 .center {
   text-align:center;

@@ -31,8 +31,7 @@
   </v-dialog>
 </template>
 <script>
-import axios from 'axios'
-import config from '@/config'
+import HTTP from '@/config'
 import State from '@/store'
 export default {
   data () {
@@ -52,12 +51,15 @@ export default {
     login () {
       if (this.login_data.username && this.login_data.password) {
         var self = this
-        axios.post(config.api + 'user/login/', this.login_data)
+        HTTP.post('user/login/', this.login_data)
         .then(response => {
           var apiKey = response.data.api_key
-          window.localStorage.setItem('api_key', apiKey)
+          var header = 'ApiKey ' + response.data.username + ':' + apiKey
+          window.localStorage.setItem('api_key_header', header)
+          HTTP.defaults.headers.common['Authorization'] = header
           self.state.username = response.data.username
           self.state.last_login = response.data.last_login
+          this.$router.push({'name': 'home'})
         })
         .catch(error => {
           this.is_snack_for_error = true

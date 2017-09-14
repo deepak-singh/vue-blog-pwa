@@ -5,6 +5,7 @@
 </template>
 <script>
 import State from '@/store'
+import HTTP from '@/config'
 export default {
   data () {
     return {
@@ -13,7 +14,8 @@ export default {
   },
   methods: {
     logout () {
-      window.localStorage.removeItem('api_key')
+      window.localStorage.removeItem('api_key_header')
+      HTTP.defaults.headers.common['Authorization'] = undefined
       this.state.username = undefined
       this.state.last_login = undefined
       this.$router.push({'name': 'home'})

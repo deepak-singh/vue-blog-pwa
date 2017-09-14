@@ -43,8 +43,7 @@
   </span>
 </template>
 <script>
-import axios from 'axios'
-import config from '@/config'
+import HTTP from '@/config'
 export default {
   data () {
     return {
@@ -65,7 +64,7 @@ export default {
     save () {
       this.$validator.validateAll()
       if (!this.$validator.errors.any()) {
-        axios.post(config.api + 'user/', this.register)
+        HTTP.post('user/', this.register)
         .then(response => {
           this.register_dialog = false
           this.is_snack_for_error = false

@@ -82,10 +82,6 @@ export default {
   width: 50%;
 }
 
-.no-text-decoration {
-  text-decoration: none;
-}
-
 .main {
   margin-top: 25px;
 }

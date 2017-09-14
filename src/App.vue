@@ -71,6 +71,11 @@ body {
 .rigth {
   text-align:right !important;
 }
+
+.no-text-decoration {
+  text-decoration: none ;
+}
+
 </style>
 
 <style scoped>
