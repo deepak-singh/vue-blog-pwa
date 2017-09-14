@@ -7,7 +7,6 @@ let HTTP = axios.create({
 })
 
 if (window.localStorage.getItem('api_key_header')) {
-  console.log('setting header from local storage')
   HTTP.defaults.headers.common['Authorization'] = window.localStorage.getItem('api_key_header')
 }
 

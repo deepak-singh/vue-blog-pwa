@@ -20,11 +20,21 @@
           </v-flex>  
         </v-layout>  
       </v-container> 
+
+      <v-btn v-if="state.username" :to="{name: 'post_add'}" v-tooltip:top="{html: 'Click to add posts'}" class="secondary white--text post-add" fab>
+        <v-icon>add</v-icon>
+      </v-btn>
+
     </span>  
 </template>
 <script>
+import State from '@/store'
 export default {
-  mounted () {
+  data () {
+    return {
+      state: State,
+      post: undefined
+    }
   }
 }
 </script>
@@ -41,5 +51,11 @@ export default {
 }
 .full {
   width: 100%;
+}
+.post-add {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  /*margin-bottom:30px;*/
 }
 </style>

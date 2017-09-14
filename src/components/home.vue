@@ -2,14 +2,14 @@
 <span>
   <v-container class="content main">
     <v-layout row wrap class="grid">
-      <v-flex class="grid-item sm12 md4 " v-for="n in 8">
+      <v-flex class="grid-item sm12 md4 " v-for="post in posts">
         <v-card hover>
-          <router-link :to="{ name: 'post_detail', params: {'slug': n}}" class="no-text-decoration">
+          <router-link :to="{ name: 'post_detail', params: {'slug': post.slug}}" class="no-text-decoration">
             <v-card-media class="white--text" height="200px" src="http://lorempixel.com/500/300/technics/">
               <v-container fill-height fluid>
                 <v-layout fill-height>
                   <v-flex xs12 align-end flexbox>
-                    <span class="headline">Top 10 Australian beaches</span>
+                    <span class="headline"> {{post.title }} </span>
                   </v-flex>
                 </v-layout>
               </v-container>
@@ -17,9 +17,8 @@
           </router-link>  
           <v-card-title>
             <div>
-              <span class="grey--text">Number 10</span><br>
-              <span>Whitehaven Beach</span><br>
-              <span>Whitsunday Island, Whitsunday Islands</span>
+              <span class="grey--text">{{ post.author_name }}</span><br>
+              <span> {{ post.body.substring(0,180) }} </span>
             </div>
           </v-card-title>
           <v-card-actions>
@@ -32,17 +31,37 @@
   </v-container>
   <v-btn v-if="state.username" :to="{name: 'post_add'}" v-tooltip:top="{html: 'Click to add posts'}" class="secondary white--text post-add" fab>
     <v-icon>add</v-icon>
-  </v-btn> 
+  </v-btn>
+  <v-snackbar :timeout="3000" :error ="is_snack_for_error" :success="!is_snack_for_error" v-model="snack_bar">
+    {{ snack_msg }} 
+    <v-btn dark flat @click.native="snack_bar = false">Close</v-btn>
+  </v-snackbar> 
 </span> 
 </template>
 <script>
 import Isotope from 'isotope-layout'
 import State from '@/store'
+import HTTP from '@/config'
 export default {
   data () {
     return {
-      state: State
+      state: State,
+      posts: [],
+      snack_bar: false,
+      snack_msg: undefined,
+      is_snack_for_error: true
     }
+  },
+  created () {
+    HTTP.get('post/')
+    .then(response => {
+      this.posts = response.data.objects
+    })
+    .catch(error => {
+      this.is_snack_for_error = true
+      this.snack_bar = true
+      this.snack_msg = error.response.data.reason
+    })
   },
   mounted () {
     this.$nextTick(() => {

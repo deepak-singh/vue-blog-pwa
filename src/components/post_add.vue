@@ -9,7 +9,7 @@
             <v-text-field autofocus v-model="post.title" label="Title" :error-messages="errors.collect('title')" v-validate="'required|max:200'" data-vv-name="title" required> </v-text-field>
           </v-flex>
           <v-flex sm12>
-            <v-text-field :error-messages="errors.collect('body')" v-validate="'required|max:1000'" data-vv-name="body" required v-model="post.body" name="body" label="Post" multi-line></v-text-field>
+            <v-text-field :error-messages="errors.collect('body')" v-validate="'required|max:5000'" data-vv-name="body" required v-model="post.body" name="body" label="Post" multi-line></v-text-field>
           </v-flex>
           <v-flex sm12>
             <v-text-field v-model="post.header_image" label="Image URL" :error-messages="errors.collect('image-url')" v-validate="'required'" data-vv-name="image-url" required> </v-text-field>

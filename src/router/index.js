@@ -30,10 +30,10 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (window.localStorage.getItem('api_key_header') && !State.username) {
-    HTTP.get('user/1')
+    HTTP.get('user')
     .then(response => {
-      State.username = response.data.username
-      State.last_login = response.data.last_login
+      State.username = response.data.objects[0].username // The API will respond with logged in users record everytime, If a valid
+      State.last_login = response.data.objects[0].last_login // key is passed. List of objects with one record.
     })
     .catch(error => {
       console.log(error)
