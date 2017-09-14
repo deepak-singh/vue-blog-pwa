@@ -1,6 +1,6 @@
 <template>
     <span>
-      <v-parallax :src="post.header_image" height="400" class="full" ></v-parallax>
+      <v-parallax :src="post.header_image" height="400" class="full" v-if="post.header_image"></v-parallax>
       <v-container class="content">
         <v-layout row wrap>
           <v-flex sm12>

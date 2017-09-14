@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 let HTTP = axios.create({
-  baseURL: 'https://blog-tastypie.herokuapp.com/api/v1/',
+  baseURL: 'http://localhost:8000/api/v1/',
   Authorization: undefined
 })
 
