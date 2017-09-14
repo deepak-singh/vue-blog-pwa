@@ -9,7 +9,6 @@ import HTTP from '@/HTTP'
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'history',
   routes: [
     {
       path: '/',
@@ -26,11 +25,7 @@ const router = new Router({
       name: 'post_detail',
       component: PostDetail
     }
-  ],
-  scrollBehavior (to, from, savedPosition) {
-    console.log('asdasd')
-    return { x: 0, y: 0 }
-  }
+  ]
 })
 
 router.beforeEach((to, from, next) => {
