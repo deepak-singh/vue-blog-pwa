@@ -41,34 +41,30 @@ export default {
   @require '../node_modules/vuetify/src/stylus/main.styl'
 </style>
 
-<style >
+<style>
 
 html,
 body {
   margin:0;
   padding:0;
-  height:100%;
+  height: 100vw;
 }
 
+.application {
+  background: white;
+}
 .wrapper {
   min-height:100%;
-  position:relative;
+  /*margin-bottom: 30px;*/
 }
 .content {
   width: 100%;
-  padding-bottom:50px; /* Height of the footer element */
+  min-height:100%;
+  position: relative;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
 }
-.footer {
-  background:#efefef;
-  width:100%;
-  height:30px;
-  position:relative;
-  bottom:0;
-  left:0;
-  padding: 1rem;
-  text-align: center;
-  clear: both;
-}
+
 .rigth {
   text-align:right !important;
 }

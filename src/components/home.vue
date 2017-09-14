@@ -22,8 +22,8 @@
             </div>
           </v-card-title>
           <v-card-actions>
-            <v-btn flat class="secondary--text half" >View</v-btn>
-            <v-btn flat class="secondary--text half" >Comment</v-btn>
+            <v-btn :to="{ name: 'post_detail', params: {'slug': post.slug, 'post_id': post.id}}" flat class="secondary--text full" >Explore</v-btn>
+            <!-- <v-btn flat class="secondary--text" >Comment</v-btn> -->
           </v-card-actions>
         </v-card>
       </v-flex>
@@ -100,7 +100,9 @@ export default {
 .half {
   width: 50%;
 }
-
+.full {
+  width: 100%;
+}
 .main {
   margin-top: 25px;
 }
