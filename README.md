@@ -2,6 +2,8 @@
 Simple blog based on django-tastypie REST apis built with Vuejs2-pwa. 
 It covers on how a vue js app can be structured along with basic authentication in place. How components can be built to achieve overall desired functionality without repeating the code everytime.
 
+Working demo can be found here -> [demo](https://vue-blog-pwa.herokuapp.com/)
+
 Plugins used: 
   - [Vuetify](https://vuetifyjs.com/)
   - [axios](https://github.com/mzabriskie/axios) (For http) 
