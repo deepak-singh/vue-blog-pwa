@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "express-sslify": "^1.2.0",
     "heroku-ssl-redirect": "0.0.4",
     "isotope-layout": "^3.0.4",
     "masonry": "0.0.2",
