@@ -2,6 +2,10 @@
 Simple blog based on django-tastypie REST apis built with Vuejs2-pwa. 
 It covers on how a vue js app can be structured along with basic authentication in place. How components can be built to achieve overall desired functionality without repeating the code everytime.
 
+### Light house score for pwa: 91/100 
+
+Using High resoultion images on the home screen, which is why the app load takes time and thus it has low score in performance.
+
 Working demo can be found here -> [demo](https://vue-blog-pwa.herokuapp.com/)
 
 Plugins used: 
