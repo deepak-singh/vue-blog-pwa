@@ -8,4 +8,10 @@
   export default {
   }
 </script>
+<style>
+.footer {
+	bottom: -10px;
+	height: 20px;
+}
+</style>
 	
