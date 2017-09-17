@@ -1,10 +1,20 @@
 // var sslRedirect = require('heroku-ssl-redirect');
 var express = require('express');
-var enforce = require('express-sslify');
-
 var app = express();
-// put it as one of the first middlewares, before routes
-app.use(enforce.HTTPS()); 
+
+app.use(function (req, res, next) {
+  var sslUrl;
+
+  if (process.env.NODE_ENV === 'production' &&
+    req.headers['x-forwarded-proto'] !== 'https') {
+
+    sslUrl = ['https://', req.hostname, req.url].join('');
+    return res.redirect(sslUrl);
+  }
+
+  return next();
+  
+  });
 
 var path = require('path');
 var serveStatic = require('serve-static');
